@@ -25,13 +25,16 @@ class Usuarios extends CI_Controller
 		{
 			//$this->form_validation->set_rules('name del campo en el form', 'label', 'required');
 			$this->form_validation->set_rules('nombre', 'Nombre', 'required');
-			$this->form_validation->set_rules('email', 'Email', 'required|trim');
+			$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 			$this->form_validation->set_rules('user', 'Usuario', 'required|trim|callback_verify_user');
-			$this->form_validation->set_rules('pass', 'Contraseña', 'required');
+			$this->form_validation->set_rules('pass', 'Contraseña', 'required|trim');
+			$this->form_validation->set_rules('pass2', 'Confirmar Contraseña', 'required|trim|matches[pass]');
 
 			//Mensaje personalizado de error
 			$this->form_validation->set_message('required', 'El campo %s es obligatorio.');
-			$this->form_validation->set_message('verify_user', 'El %s ya existe.');
+			$this->form_validation->set_message('verify_user', 'El %s ya existe en la BBDD.');
+			$this->form_validation->set_message('valid_email', 'Ingresa un %s válido.');
+			$this->form_validation->set_message('matches', 'El campo %s no coincide con la proporcionada anteriormente.');
 
 			if($this->form_validation->run() != FALSE ){
 				$this->usuarios_model->add_user();
@@ -42,6 +45,8 @@ class Usuarios extends CI_Controller
 				$this->load->view('registro_view');
 			}
 				
+		}else{
+			redirect(base_url().'usuarios');
 		}
 	}
 

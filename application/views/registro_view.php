@@ -22,6 +22,9 @@
 		<label for="password">Contraseña</label>
 		<input type="password" name="pass" value="<?= @set_value('pass') ?>"><br>
 
+		<label for="password2">Confirmar contraseña</label>
+		<input type="password" name="pass2" value="<?= @set_value('pass') ?>"><br>
+
 		<input type="submit" value="Registrar" name="submit_reg">
 		<a href="<?= base_url().'/registro'?>usuarios/">Registrate</a>
 	</form>
