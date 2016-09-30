@@ -6,6 +6,7 @@ class Usuarios extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->model('usuarios_model');
 	}
 
 	public function index()
@@ -25,7 +26,7 @@ class Usuarios extends CI_Controller
 			//$this->form_validation->set_rules('name del campo en el form', 'label', 'required');
 			$this->form_validation->set_rules('nombre', 'Nombre', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required|trim');
-			$this->form_validation->set_rules('user', 'Usuario', 'required');
+			$this->form_validation->set_rules('user', 'Usuario', 'required|trim|callback_verify_user');
 			$this->form_validation->set_rules('pass', 'Contraseña', 'required');
 
 			//Mensaje personalizado de error
@@ -38,6 +39,11 @@ class Usuarios extends CI_Controller
 			}
 				
 		}
+	}
+
+	public function verify_user($user)
+	{
+
 	}
 }
 ?>
