@@ -47,10 +47,13 @@ class Usuarios extends CI_Controller
 
 	public function verify_user($user)
 	{
-		$call_usuarios_model = $this->usuarios_model->verify_user($user);
-		if($call_usuarios_model == true){
+		$variable = $this->usuarios_model->verify_user($user);
+		if($variable == true)
+		{
 			return false;
-		}else{
+
+		}else
+		{
 			return true;
 		}
 	}

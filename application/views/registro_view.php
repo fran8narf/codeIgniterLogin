@@ -7,7 +7,7 @@
 
 	<h1>Regístrate</h1>
 	<?php if(isset($mensaje)): ?>
-		<h2> <?php $mensaje; ?> </h2>	
+		<h2><?= $mensaje; ?></h2>	
 	<?php endif; ?>
 	<form name="form_reg" action="<?= base_url().'usuarios/registro_verify'?>" method="POST">
 		<label for="nombre">Nombre</label>
