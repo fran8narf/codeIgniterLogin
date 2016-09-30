@@ -31,8 +31,12 @@ class Usuarios extends CI_Controller
 
 			//Mensaje personalizado de error
 			$this->form_validation->set_message('required', 'El campo %s es obligatorio.');
+			$this->form_validation->set_message('verify_user', 'El %s ya existe.');
 
 			if($this->form_validation->run() != FALSE ){
+				$this->usuarios_model->add_user();
+				$data = array('mensaje'=>'El usuario se ha creado correctamente.');
+				$this->load->view('registro_view', $data);
 
 			}else{
 				$this->load->view('registro_view');
@@ -43,7 +47,12 @@ class Usuarios extends CI_Controller
 
 	public function verify_user($user)
 	{
-
+		$call_usuarios_model = $this->usuarios_model->verify_user($user);
+		if($call_usuarios_model == true){
+			return false;
+		}else{
+			return true;
+		}
 	}
 }
 ?>
