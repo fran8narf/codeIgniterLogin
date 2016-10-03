@@ -26,7 +26,7 @@
 		<input type="password" name="pass2" value="<?= @set_value('pass') ?>"><br>
 
 		<input type="submit" value="Registrar" name="submit_reg">
-		<a href="<?= base_url().'/registro'?>usuarios/">Registrate</a>
+		<a href="<?= base_url() ?>usuarios/">Acceder</a>
 	</form>
 	<hr>
 	<?= validation_errors(); ?>
