@@ -9,7 +9,7 @@
 	<?php if(isset($mensaje)): ?>
 		<h2><?= $mensaje; ?></h2>	
 	<?php endif; ?>
-	<form name="form_reg" action="<?= base_url().'usuarios/registro_verify'?>" method="POST">
+	<form name="form_reg" action="<?= base_url().'login/registro_verify'?>" method="POST">
 		<label for="nombre">Nombre</label>
 		<input type="text" name="nombre" value="<?= @set_value('nombre') ?>"><br>
 
@@ -26,7 +26,7 @@
 		<input type="password" name="pass2" value="<?= @set_value('pass') ?>"><br>
 
 		<input type="submit" value="Registrar" name="submit_reg">
-		<a href="<?= base_url() ?>usuarios/">Acceder</a>
+		<a href="<?= base_url() ?>login">Acceder</a>
 	</form>
 	<hr>
 	<?= validation_errors(); ?>

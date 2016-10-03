@@ -6,9 +6,9 @@ class Usuarios_model extends CI_Model
 		parent::__construct();
 	}
 
-	public function verify_user($user)
+	public function verify($variable, $campo)
 	{
-		$query = $this->db->get_where('usuarios', array('usuario'=>$user));
+		$query = $this->db->get_where('usuarios', array($campo=>$variable));
 		if($query->num_rows() == 1)
 		{
 			return true;
@@ -26,8 +26,25 @@ class Usuarios_model extends CI_Model
 			'usuario'=>$this->input->post('user', TRUE),
 			'pass'=>$this->input->post('pass', TRUE),
 			'codigo'=>'123456',
-			'estado'=>'0'
+			'estado'=>'0',
+			'creado'=>date("Y-m-d H:i:s")
 		));
+	}
+
+	public function verify_session()
+	{
+		$query = $this->db->get_where('usuarios', array(
+													'usuario'=>$this->input->post('user', TRUE),
+													'pass'=>$this->input->post('pass', TRUE))
+												);
+		if($query->num_rows() == 1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
 ?>

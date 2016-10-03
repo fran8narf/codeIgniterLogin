@@ -34,7 +34,7 @@ $config['base_url'] = 'http://localhost:8012/pruebasCI/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = 'login_view.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -232,7 +232,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'rcEihpuXsvdWvfuCW3cp62dDdEnVjjT2';
 
 /*
 |--------------------------------------------------------------------------
